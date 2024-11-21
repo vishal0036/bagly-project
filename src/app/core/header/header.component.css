@@ -1,0 +1,30 @@
+/* Show dropdown menu on hover */
+.nav-item.dropdown:hover > .dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  /* Keep dropdown styles aligned with Bootstrap */
+  .nav-item.dropdown:hover > .dropdown-toggle {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  /* Align nested dropdown to the right of the parent */
+.dropdown-submenu {
+    position: relative;
+  }
+  
+  .dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -0.25rem;
+    border-radius: 0.25rem;
+  }
+  
+  /* Hover effect for nested dropdowns */
+  .dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+  }
+  
