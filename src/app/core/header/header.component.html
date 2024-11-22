@@ -1,90 +1,145 @@
 <header>
-    <div class="topbar">
-      <div class="site-container">
-            <div class="topbar-inner pt-1">
-               
-                <div class="logo_inner">
-                    <a href="#" class="phone_icon">
-                        <img src="assets/images/phone.png" alt="phone" class="">
-                      </a>
-                      <h6 class="whtsApp">
-                        <a href="" class="text-secondary" target="_blank">Need help?</a>
-                      </h6>
-                </div>
-                <div class="social_icon">
-                   <a href="" class="phone_icon"><img src="assets/images/fb.png" alt=""></a>
-                   <a href="" class="phone_icon"><img src="assets/images/insta.png" alt=""></a>
-                </div>
-            </div>
-            
-        </div>           
-    </div>
-    <div class="main-nav border border-dark pt-2">
-      <div class="site-container">
-        <div class="main-nav-inner d-flex justify-content-between">
-          <button type="button" class="navbar-toggler openNav-icon d-xl-none">
-            <span>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-              </svg>
-            </span>
-          </button>
-          
-          <div class="log"><img src="/assets/images/logo.png" alt=""></div>
-          <nav class="navbar d-lg-flex justify-content-flex-end d-md-none">
-            <ul class="nav justify-content-center">
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle active"
-                  href="#"
-                  id="womanDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  Woman
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="womanDropdown">
-                  <li class="dropdown-submenu">
-                    <a class="dropdown-item dropdown-toggle" href="#">Bags</a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Shoulderbag</a></li>
-                      <li><a class="dropdown-item" href="#">Tops</a></li>
-                      <li><a class="dropdown-item" href="#">Skirts</a></li>
-                    </ul>
-                  </li>
-                  <li><a class="dropdown-item" href="#">Tops</a></li>
-                  <li><a class="dropdown-item" href="#">Skirts</a></li>
-                </ul>
-              </li>
-            
-              <!-- Other Menu Items -->
-              <li class="nav-item">
-                <a class="nav-link" href="#">Accessories</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Collections</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Contact us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link phone_icon" href="#">
-                  <img src="/assets/images/search.png" alt="">Research
-                </a>
-              </li>
-            </ul>
-            
-            <ul class="nav justify-content-center">
-            <li class="nav-item">
-              <a class="nav-link phone_icon" href="#"><img src="/assets/images/cart.png" alt="">Cart</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled border dark" href="#">Sign in</a>
-            </li>
-          </ul>
-          </nav>
-         
+  <div class="bg-gray-100 pt-1 pb-1">
+    <div class="site-container">
+      <div class="flex justify-between items-center">
+
+        <!-- Logo and Help Section -->
+        <div class="flex items-center c-x-2 gap-4">
+          <a href="#" class="block">
+            <img src="assets/images/phone.png" alt="phone" class="h-6 w-6">
+          </a>
+          <h6>
+            <a href="#" class="text-gray-500 hover:text-gray-500" target="_blank">Need help?</a>
+          </h6>
         </div>
+
+        <!-- Social Icons -->
+        <div class="flex space-x-4">
+          <a href="#" class="block">
+            <img src="assets/images/fb.png" alt="Facebook" class="max-h-4">
+          </a>
+          <a href="#" class="block">
+            <img src="assets/images/insta.png" alt="Instagram" class="max-h-4">
+          </a>
+        </div>
+
       </div>
     </div>
+  </div>
+
+  <div class="main-nav border border-black py-2.5">
+    <div class="site-container">
+      <div class="flex justify-between items-center">
+
+        <!-- Mobile Menu Button -->
+        <button type="button" class="block xl:hidden text-gray-800 hover: focus:outline-none">
+          <span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </span>
+        </button>
+
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <img src="/assets/images/logo.png" alt="Logo" class="max-h-11">
+        </div>
+
+        <!-- Navigation -->
+        <nav class="hidden xl:flex space-x-6 navbar">
+          <ul class="flex space-x-6">
+            <!-- Dropdown Menu -->
+            <li class="relative group">
+              <a href="#" class="text-base">
+                Woman
+              </a>
+              <ul class="absolute hidden group-hover:block shadow-lg py-2 w-40 border border-gray-200 mt-2">
+                <li class="relative group">
+                  <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                    Bags
+                  </a>
+                  <ul
+                    class="absolute left-full top-0 hidden group-hover:block bg-white shadow-lg py-2 w-40 border border-gray-200">
+                    <li>
+                      <a href="#" class="block px-4 py-2  hover:bg-gray-100">
+                        Shoulderbag
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                        Tops
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                        Skirts
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                    Tops
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                    Skirts
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Other Menu Items -->
+            <li>
+              <a href="#" class="  text-base">
+                Accessories
+              </a>
+            </li>
+            <li>
+              <a href="#" class="  text-base">
+                Collections
+              </a>
+            </li>
+            <li>
+              <a routerLink="/contactus" class="  text-base">
+                Contact Us
+              </a>
+            </li>
+          </ul>
+
+          <!-- Right Menu -->
+          <ul class="flex space-x-6">
+            <li>
+              <a href="#" class="flex items-center">
+                <img src="/assets/images/search.png" alt="Search" class="h-5 mr-1">
+                Research
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center">
+                <img src="/assets/images/cart.png" alt="Cart" class="h-5 mr-1">
+                Cart
+              </a>
+            </li>
+            <li>
+              <a href="#" class="border border-gray-800 text-black-800 px-4 py-3 rounded tracking-wider">
+                Sign In
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+
+
+
+      <!-- mobile view -->
+
+
+
+      <!-- mobile view close -->
+
+    </div>
+  </div>
 </header>

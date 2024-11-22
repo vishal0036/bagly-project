@@ -1,0 +1,10 @@
+.slick-carousel {
+    width: 100%;               /* Adjust width as needed */
+    margin: 0 auto;           /* Center the carousel */
+  }
+  
+  .slick-carousel img {
+    width: 100%;              /* Make images fill the width of their container */
+    border-radius: 8px;       /* Optional: add rounded corners to images */
+    display: block;           /* Prevent extra space below images */
+  }
