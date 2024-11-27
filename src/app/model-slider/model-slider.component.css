@@ -9,6 +9,7 @@
     display: block;           /* Prevent extra space below images */
   }
   .slick-prev {
-    left: 15px !important;
-    z-index: 1 !important;
+    left: -25px;
+    z-index: 1;
+    background: #000;
 }

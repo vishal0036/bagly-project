@@ -10,13 +10,13 @@ declare var $: any;
 export class ProductSliderComponent implements OnInit{
   ngOnInit(): void {
     
-    $('.slick-carousel').slick({
-      infinite: true,           
+    $('.slick-carousel').slick({          
       slidesToShow: 3,          
       slidesToScroll: 1,        
       autoplay: true,           
-      autoplaySpeed: 3000,                    
-      arrows: true              
+      autoplaySpeed: 3000,      
+      dots: false,  
+      arrows:true                         
     });
   }
 }

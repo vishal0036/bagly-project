@@ -10,6 +10,7 @@ module.exports = {
         'gray':'#888',
         'lightgray':'#e8e8e8',
         'darkgray':'#717171',
+        'bs-border-color':'#dee2e6',
       },
     },
   },

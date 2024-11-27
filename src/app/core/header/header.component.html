@@ -42,7 +42,7 @@
 
         <!-- Logo -->
         <div class="flex-shrink-0">
-          <img src="/assets/images/logo.png" alt="Logo" class="max-h-11">
+          <a [routerLink]="['/']"><img src="/assets/images/logo.png" alt=""></a>
         </div>
 
         <!-- Navigation -->
@@ -97,12 +97,12 @@
               </a>
             </li>
             <li>
-              <a href="#" class="  text-base">
+              <a [routerLink]="['/collections']" class="  text-base">
                 Collections
               </a>
             </li>
             <li>
-              <a routerLink="/contactus" class="  text-base">
+              <a [routerLink]="['/contactus']" class="  text-base">
                 Contact Us
               </a>
             </li>
