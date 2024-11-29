@@ -1,42 +1,47 @@
-
 <div class="site-container">
-  <h1 class="py-5 font-medium text-left text-2xl">Collections</h1>
+  <h1 class="py-5 font-medium text-left text-base">Collections</h1>
   <p class="text-lg text-gray">Classic design, top quality materials, bright details with Bagly will be like wearing an exclusive jewel in everyday life. Let yourself be enveloped by the new colors and designs in a journey of overwhelming experiences between leather and accessories that, with the work of our best designers and craftsmen, will make even the simplest outfit unique.</p>
+  
   <div class="collections py-10 px-3">
-    
     <div class="product-container">
-      <!-- Display loading indicator -->
       <div *ngIf="isLoading" class="loading">
         <p>Loading products...</p>
       </div>
-    
-      <!-- Display error message -->
+
       <div *ngIf="errorMessage" class="error">
         <p>{{ errorMessage }}</p>
       </div>
-      
-    
-      <!-- Display list of products -->
-      <div *ngIf="!isLoading && !errorMessage" class="products-list grid grid-cols-4 gap-3 justify-center">
-        <div *ngFor="let product of products" class="product-item">
-          <div class="product-image">
-            <img [src]="product.images[0]?.src" [alt]="product.name" />
+
+      <div class="collections_main flex">
+        <div class="w-1/6">
+          <div class="color-terms-container" *ngIf="!isLoading">
+            <h2 class="text-base font-semibold">Select Color</h2>
+            <div *ngFor="let color of colorTerms" class="color-term flex gap-3">
+              <input 
+                type="checkbox" 
+                id="color-{{ color.id }}" 
+                [value]="color.name"
+                [checked]="selectedTerm === color.id" 
+                (change)="onTermClick(color.id, $event)"
+              />
+              <label class="capitalize" for="color-{{ color.id }}">{{ color.name }}</label>
+            </div>
           </div>
-          <div class="product-info">
-         
-            <p class="py-5" [innerHTML]="product.price_html"></p>
-            <h3 class="text-black text-2xl font-normal">{{ product.name }}</h3>
-            <button class="bg-black text-white p-2.5" (click)="addToCart(product)">Add to Cart</button>
+        </div>
+
+        <!-- Display filtered list of products -->
+        <div *ngIf="!isLoading && !errorMessage" class="products-list grid grid-cols-4 gap-3 justify-center w-4/5">
+          <div *ngFor="let product of filteredProducts" class="product-item">
+            <div class="product-image">
+              <img [src]="product.images[0]?.src" [alt]="product.name" />
+            </div>
+            <div class="product-info">
+              <p class="py-5" [innerHTML]="product.price_html"></p>
+              <h3 class="text-black text-2xl font-normal">{{ product.name }}</h3>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    
-    <!-- Add any CSS styling you may want -->
-    
-    
-    
   </div>
 </div>
-
-  
