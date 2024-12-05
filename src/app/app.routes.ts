@@ -4,14 +4,17 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 import { CollectionsComponent } from './collections/collections.component';
 import { AppproductComponent } from './appproduct/appproduct.component';
+import { ProductComponent } from './product/product.component';
+import { CartComponent } from './cart/cart.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'home', component: HomeComponent },
     { path: 'contactus', component: ContactusComponent },
     { path: 'collections', component: CollectionsComponent },
-    { path: 'collections', component: CollectionsComponent },
+    { path: 'product/:id', component: ProductComponent },
     { path: 'appproduct', component: AppproductComponent },
+    { path: 'cart', component: CartComponent },
     { path: '**', component: PageNotFoundComponent }, 
 ];
 

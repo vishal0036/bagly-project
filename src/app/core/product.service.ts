@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,13 @@ export class ProductService {
   
   private cart: any[] = []; // Local array to simulate a cart
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    // Load cart from localStorage if available
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+      this.cart = JSON.parse(storedCart);
+    }
+  }
 
    // Fetch all products
    fetchProducts(): Observable<any[]> {
@@ -24,15 +31,6 @@ export class ProductService {
     return this.http.get<any[]>(this.apiUrl, { headers });
   }
 
-  // Fetch products filtered by color term
-  fetchProductsByColorTerm(colorTermId: number): Observable<any[]> {
-    const headers = new HttpHeaders({
-      'Authorization': 'Basic ' + btoa(`${this.consumerKey}:${this.consumerSecret}`)
-    });
-
-    // Adjust the request URL to properly filter by color (assuming pa_color is the correct slug)
-    return this.http.get<any[]>(`${this.apiUrl}?filter[attribute_pa_color]=${colorTermId}`, { headers });
-  }
 
   // Fetch terms for the 'pa_color' attribute
   fetchColorTerms(): Observable<any[]> {
@@ -43,11 +41,23 @@ export class ProductService {
     return this.http.get<any[]>(this.apiAttributesUrl, { headers });
   }
 
-  // addToCart(product: any) {
-  //   this.cart.push(product);
-  //   console.log('Product added to cart:', product);
-  //   localStorage.setItem('cart', JSON.stringify(this.cart)); // Store cart in localStorage
-  // }
+  // Method to fetch product by ID
+  getProductById(productId: string): Observable<any> {
+    const url = `${this.apiUrl}/${productId}`;  // Construct the API URL using the product ID
+    const headers = new HttpHeaders({
+      'Authorization': 'Basic ' + btoa(`${this.consumerKey}:${this.consumerSecret}`)  // Authorization for WooCommerce
+    });
+
+    return this.http.get<any>(url, { headers });
+  }
+
+ // Add product to the cart (using localStorage)
+ addToCart(product: any): void {
+  this.cart.push(product);
+  console.log('Product added to cart:', product);
+  localStorage.setItem('cart', JSON.stringify(this.cart)); // Save cart to localStorage
+}
+
 
   // getCart() {
   //   return JSON.parse(localStorage.getItem('cart') || '[]');

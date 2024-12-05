@@ -1,0 +1,26 @@
+<div class="site-container">
+  <div *ngIf="isLoading">Loading product details...</div>
+
+
+  <div *ngIf="errorMessage">{{ errorMessage }}</div>
+<div class="product_main grid grid-cols-2 gap-4 py-10">
+  <div *ngIf="!isLoading && product">
+    <img [src]="product.images[0]?.src" alt="{{ product.name }}" *ngIf="product.images && product.images.length > 0" />
+    <h2 class="py-2">{{ product.name }}</h2>
+
+    <p class="py-2" [innerHTML]="product.price_html"></p>
+
+    <button class="bg-black text-white py-2 px-5 rounded-xl" (click)="addToCart()">Add to Cart</button>
+
+    <!-- Display a fallback message if no image is available -->
+    <p *ngIf="!product.images || product.images.length === 0">No image available</p>
+  </div>
+  <div class="productdescription">
+    <h2 class="text-3xl py-5">Description</h2>
+    <div class="text-lg" [innerHTML]="product.description"></div>
+    <h3 class="text-3xl py-3">Product Information</h3>
+  </div>
+</div>
+ 
+  
+</div>
