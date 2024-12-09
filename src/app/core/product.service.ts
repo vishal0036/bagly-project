@@ -58,8 +58,13 @@ export class ProductService {
   localStorage.setItem('cart', JSON.stringify(this.cart)); // Save cart to localStorage
 }
 
-
-  // getCart() {
-  //   return JSON.parse(localStorage.getItem('cart') || '[]');
-  // }
+// Remove product from cart
+removeFromCart(product: any): void {
+  this.cart = this.cart.filter(item => item.id !== product.id);  
+  localStorage.setItem('cart', JSON.stringify(this.cart)); // Update cart in localStorage
+}
+  // Get the cart from localStorage
+  getCart(): any[] {
+    return JSON.parse(localStorage.getItem('cart') || '[]');
+  }
 }

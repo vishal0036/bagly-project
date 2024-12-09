@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { ProductService } from '../core/product.service';  // Adjust path as needed
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +11,7 @@ import { Component } from '@angular/core';
 })
 export class CartComponent {
   cart: any[] = [];  // Array to store cart products
-
+  constructor(private productService: ProductService) {}
   ngOnInit(): void {
     this.loadCart();
   }
@@ -22,12 +23,13 @@ export class CartComponent {
       this.cart = JSON.parse(storedCart);  
     }
   }
+                                            
+ // Method to remove item from cart
+ removeFromCart(product: any): void {
+  this.productService.removeFromCart(product); // Remove product using ProductService
+  this.loadCart(); // Reload cart to reflect changes
+}
 
-  // Method to remove item from cart
-  removeFromCart(product: any): void {
-    this.cart = this.cart.filter(item => item.id !== product.id);  
-    localStorage.setItem('cart', JSON.stringify(this.cart)); // Update cart in localStorage
-  }
 
   // Method to calculate the total price of items in the cart
   getTotal(): number {
