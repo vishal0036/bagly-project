@@ -3,15 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../core/product.service';
 
 @Component({
-  selector: 'app-cart',
+  selector: 'app-shopping-cart',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './cart.component.html',
-  styleUrl: './cart.component.css'
+  templateUrl: './shopping-cart.component.html',
+  styleUrl: './shopping-cart.component.css'
 })
-export class CartComponent implements OnInit {
+export class ShoppingCartComponent implements OnInit {
   cart: any[] = [];  // Array to store cart products
-  
+
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {

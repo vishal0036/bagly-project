@@ -7,13 +7,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ContactusComponent } from './contactus/contactus.component';
 import { CollectionsComponent } from './collections/collections.component';
 import { AppproductComponent } from './appproduct/appproduct.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,HeaderComponent, HomeComponent, FooterComponent, RouterModule, PageNotFoundComponent, RouterLink, ContactusComponent, CollectionsComponent, AppproductComponent],
+  imports: [RouterOutlet,HeaderComponent, HomeComponent, FooterComponent, RouterModule, PageNotFoundComponent, RouterLink, ContactusComponent, CollectionsComponent, AppproductComponent,ShoppingCartComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

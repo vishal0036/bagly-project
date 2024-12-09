@@ -1,0 +1,36 @@
+<div
+  class="bg-black text-white px-4 py-2 absolute left-0 right-5 top-10 w-[400px] h-[270px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+  <div class="site-container">
+
+    <!-- Check if the cart is empty -->
+    <div *ngIf="cart.length === 0" class="empty-cart py-10 text-center text-2xl w-64">
+      <p>Your cart is empty.</p>
+    </div>
+
+    <!-- Display cart items -->
+    <div *ngIf="cart.length > 0" class="cart-items">
+
+      <div class="cart-item ">
+        <div *ngFor="let product of cart" class="item-details flex gap-3">
+
+          <img class="w-16" [src]="product.images[0]?.src" alt="{{ product.name }}"
+            *ngIf="product.images && product.images.length > 0" />
+          <h2 class="font-medium tracking-wider">{{ product.name }}</h2>
+
+          <p class="font-normal">{{ product.price | currency }}</p>
+          <button (click)="removeFromCart(product)">X</button>
+        </div>
+
+        <!-- Display total price -->
+        <div *ngIf="cart.length > 0" class="cart-total py-3 shadow-md px-5 w-full">
+          <ul>
+            <li class="flex"><label for="">Sub Total:</label>
+              <span class="text-white">{{ getTotal() | currency }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
