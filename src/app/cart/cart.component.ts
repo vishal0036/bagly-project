@@ -11,7 +11,7 @@ import { ProductService } from '../core/product.service';
 })
 export class CartComponent implements OnInit {
   cart: any[] = [];  // Array to store cart products
-  
+  count: number = 0;
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
@@ -21,11 +21,20 @@ export class CartComponent implements OnInit {
     });
   }
 
+  incrementCount(): void {
+    this.count++;
+  }
+
+  decrementCount(): void {
+    this.count--;
+  }
   // Method to remove item from cart
   removeFromCart(product: any): void {
     this.productService.removeFromCart(product); // Use service to remove the product
   }
 
+
+  
   // Method to calculate the total price of items in the cart
   getTotal(): number {
     const total = this.cart.reduce((sum, item) => sum + parseFloat(item.price.replace(/[^0-9.-]+/g, '')), 0);

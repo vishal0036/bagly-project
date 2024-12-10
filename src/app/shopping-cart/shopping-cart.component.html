@@ -11,7 +11,7 @@
     <div *ngIf="cart.length > 0" class="cart-items">
 
       <div class="cart-item ">
-        <div *ngFor="let product of cart" class="item-details flex gap-3">
+        <div *ngFor="let product of cart" class="item-details flex gap-3 mb-2">
 
           <img class="w-16" [src]="product.images[0]?.src" alt="{{ product.name }}"
             *ngIf="product.images && product.images.length > 0" />

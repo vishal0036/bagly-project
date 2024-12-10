@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,7 @@ export class ProductService {
   
   private cart: any[] = []; // Local array to simulate a cart
   private cartSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]); // To broadcast cart changes
+  private cartCountSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0); 
 
   constructor(private http: HttpClient) {
     // Load cart from localStorage if available
@@ -42,7 +43,7 @@ export class ProductService {
     return this.http.get<any[]>(this.apiAttributesUrl, { headers });
   }
 
-  // Method to fetch product by ID
+  // Method to fetch product by ID Yeh function kisi specific product ko ID ke basis pe fetch karta hai.
   getProductById(productId: string): Observable<any> {
     const url = `${this.apiUrl}/${productId}`;
     const headers = new HttpHeaders({
@@ -57,6 +58,7 @@ export class ProductService {
     this.cart.push(product);
     localStorage.setItem('cart', JSON.stringify(this.cart)); // Save cart to localStorage
     this.cartSubject.next(this.cart); // Emit updated cart state
+    this.cartCountSubject.next(this.cart.length);
   }
 
   // Remove product from cart
@@ -64,6 +66,7 @@ export class ProductService {
     this.cart = this.cart.filter(item => item.id !== product.id);
     localStorage.setItem('cart', JSON.stringify(this.cart)); // Update cart in localStorage
     this.cartSubject.next(this.cart); // Emit updated cart state
+    this.cartCountSubject.next(this.cart.length);
   }
 
   // Get the cart from localStorage
@@ -74,5 +77,9 @@ export class ProductService {
   // Observable to watch cart changes
   getCartObservable(): Observable<any[]> {
     return this.cartSubject.asObservable();
+  }
+   // Observable to watch cart count changes
+   getCartCountObservable(): Observable<number> {
+    return this.cartCountSubject.asObservable();
   }
 }

@@ -30,9 +30,9 @@
         <div class="flex justify-between w-3/5">
           <p class="font-normal">{{ product.price | currency }}</p>
           <div class="number">
-            <span class="minus">-</span>
-            <input type="text" value="1"/>
-            <span class="plus">+</span>
+            <button class="minus px-2 py-1 border">-</button>         
+            <input type="number" class="w-8 text-center border"  value="1"/>
+            <span class="plus px-2 py-1 border">+</span>
           </div>  
                  
           <button (click)="removeFromCart(product)">X</button>

@@ -118,7 +118,8 @@
             </li>
             <li class="group relative">
               <a routerLink="/cart" class="flex items-center">
-                <span class="cart-total"></span>
+                <span  class="cart-total absolute rounded-full text-white bg-red-500 h-6 w-6 flex justify-center content-center bottom-4 left-2">{{ cartCount }}</span>
+                
                 <img src="/assets/images/cart.png" alt="Cart" class="h-5 mr-1">
                 Cart
               </a>
