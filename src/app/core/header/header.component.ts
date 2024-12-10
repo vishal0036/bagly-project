@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ShoppingCartComponent } from '../../shopping-cart/shopping-cart.component';
 import { ProductService } from '../product.service';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, ShoppingCartComponent],
+  imports: [RouterLink, ShoppingCartComponent, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

@@ -1,17 +1,16 @@
 <div
-  class="bg-black text-white px-4 py-2 absolute left-0 right-5 top-10 w-[400px] h-[270px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-  <div class="site-container">
+  class="bg-tfc_back text-white px-4 py-7 absolute left-0  top-10 w-[350px] h-[auto] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center">
 
     <!-- Check if the cart is empty -->
     <div *ngIf="cart.length === 0" class="empty-cart py-10 text-center text-2xl w-64">
-      <p>Your cart is empty.</p>
+      <p class="text-center">Your cart is empty.</p>
     </div>
 
     <!-- Display cart items -->
     <div *ngIf="cart.length > 0" class="cart-items">
 
-      <div class="cart-item ">
-        <div *ngFor="let product of cart" class="item-details flex gap-3 mb-2">
+      <div class="cart-item flex flex-col">
+        <div *ngFor="let product of cart" class="item-details flex gap-3 mb-2 items-center">
 
           <img class="w-16" [src]="product.images[0]?.src" alt="{{ product.name }}"
             *ngIf="product.images && product.images.length > 0" />
@@ -24,13 +23,14 @@
         <!-- Display total price -->
         <div *ngIf="cart.length > 0" class="cart-total py-3 shadow-md px-5 w-full">
           <ul>
-            <li class="flex"><label for="">Sub Total:</label>
-              <span class="text-white">{{ getTotal() | currency }}</span>
+            <li class="flex justify-center gap-3 uppercase"><label for="">Sub Total:</label>
+              <span class="text-white"> {{ getTotal() | currency }}</span>
             </li>
           </ul>
         </div>
       </div>
-
+        <div class="btn pt-5"><a class="text-light_black bg-white px-7 rounded-lg py-2" routerLink="/cart">Cart</a>
+          <button class=" bg-black  text-white px-7 rounded-lg py-2">Payment</button>
+        </div>
     </div>
-
   </div>

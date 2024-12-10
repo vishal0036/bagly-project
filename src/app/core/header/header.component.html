@@ -50,40 +50,40 @@
           <ul class="flex space-x-6">
             <!-- Dropdown Menu -->
             <li class="relative group">
-              <a href="#" class="text-base">
+              <a href="#" class="text-base text-light_black">
                 Woman
               </a>
               <ul class="absolute hidden group-hover:block shadow-lg py-2 w-40 border border-gray-200 mt-2">
                 <li class="relative group">
-                  <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                  <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 text-light_black">
                     Bags
                   </a>
                   <ul
                     class="absolute left-full top-0 hidden group-hover:block bg-white shadow-lg py-2 w-40 border border-gray-200">
                     <li>
-                      <a href="#" class="block px-4 py-2  hover:bg-gray-100">
+                      <a href="#" class="block px-4 py-2  hover:bg-gray-100 text-light_black">
                         Shoulderbag
                       </a>
                     </li>
                     <li>
-                      <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                      <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 text-light_black">
                         Tops
                       </a>
                     </li>
                     <li>
-                      <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                      <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 text-light_black">
                         Skirts
                       </a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                  <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 text-light_black">
                     Tops
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                  <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 text-light_black">
                     Skirts
                   </a>
                 </li>
@@ -92,17 +92,17 @@
 
             <!-- Other Menu Items -->
             <li>
-              <a href="#" class="  text-base">
+              <a href="#" class="  text-base text-light_black">
                 Accessories
               </a>
             </li>
             <li>
-              <a [routerLink]="['/collections']" class="  text-base">
+              <a [routerLink]="['/collections']" class="  text-base text-light_black">
                 Collections
               </a>
             </li>
             <li>
-              <a [routerLink]="['/contactus']" class="  text-base">
+              <a [routerLink]="['/contactus']" class="  text-base text-light_black">
                 Contact Us
               </a>
             </li>
@@ -111,22 +111,23 @@
           <!-- Right Menu -->
           <ul class="flex space-x-6">
             <li>
-              <a href="#" class="flex items-center">
+              <a href="#" class="flex items-center text-light_black">
                 <img src="/assets/images/search.png" alt="Search" class="h-5 mr-1">
                 Research
               </a>
             </li>
-            <li class="group relative">
-              <a routerLink="/cart" class="flex items-center">
-                <span  class="cart-total absolute rounded-full text-white bg-red-500 h-6 w-6 flex justify-center content-center bottom-4 left-2">{{ cartCount }}</span>
-                
+            <li class="group relative z-10">
+              <a routerLink="/cart" class="flex items-center text-light_black">
+                <span *ngIf="cartCount > 0"
+                  class="cart-total absolute rounded-full text-white bg-red-600 h-6 w-6 flex justify-center content-center bottom-4 left-2">{{ cartCount }}
+                </span>
                 <img src="/assets/images/cart.png" alt="Cart" class="h-5 mr-1">
                 Cart
               </a>
               <app-shopping-cart></app-shopping-cart>
             </li>
             <li>
-              <a href="#" class="border border-gray-800 text-black-800 px-4 py-3 rounded tracking-wider">
+              <a href="#" class="border border-gray-800 text-black-800 px-4 py-3 rounded tracking-wider text-light_black">
                 Sign In
               </a>
             </li>

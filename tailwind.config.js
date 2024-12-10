@@ -11,6 +11,8 @@ module.exports = {
         'lightgray':'#e8e8e8',
         'darkgray':'#717171',
         'bs-border-color':'#dee2e6',
+        'tfc_back':'#212121',
+        'light_black':'#2a2a2a',
       },
     },
   },

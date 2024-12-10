@@ -16,7 +16,8 @@ body p, body a, body li, body button, body span {
     margin: auto;
 }
 .navbar a
-{color: #2a2a2a;
+{
+    /* color: #2a2a2a; */
 font-size: 16px;
 margin: 0 5px;
 letter-spacing: 1px;
