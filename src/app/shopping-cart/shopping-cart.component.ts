@@ -28,8 +28,10 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   // Method to calculate the total price of items in the cart
-  getTotal(): number {
-    const total = this.cart.reduce((sum, item) => sum + parseFloat(item.price.replace(/[^0-9.-]+/g, '')), 0);
-    return total;
+   getTotal(): number {
+    return this.cart.reduce((sum, item) => {
+      const itemPrice = parseFloat(item.price.replace(/[^0-9.-]+/g, ''));
+      return sum + (itemPrice * item.quantity); 
+    }, 0);
   }
 }

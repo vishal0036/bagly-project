@@ -30,10 +30,10 @@
         <div class="flex justify-between w-3/5">
           <p class="font-normal">{{ product.price | currency }}</p>
           <div class="number">
-            <button class="minus px-2 py-1 border">-</button>         
-            <input type="number" class="w-8 text-center border"  value="1"/>
-            <span class="plus px-2 py-1 border">+</span>
-          </div>  
+            <button class="minus px-2 py-1 border" (click)="decrementQuantity(product)">-</button>         
+            <input type="number" class="w-10 text-center border" [value]="product.quantity" readonly />
+            <span class="plus px-2 py-1 border" (click)="incrementQuantity(product)">+</span>
+          </div> 
                  
           <button (click)="removeFromCart(product)">X</button>
         </div>
@@ -44,7 +44,7 @@
       <h2 class="py-3 text-2xl">Cart Total</h2>
       <ul>
         <li class="flex justify-between"><label for="">Total:</label>
-        <span>{{ getTotal() | currency }}</span>
+          <span>{{ getTotal() | currency }}</span>
         </li>
       </ul>
     </div>

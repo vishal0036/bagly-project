@@ -54,21 +54,37 @@ export class ProductService {
   }
 
   // Add product to the cart (using localStorage)
-  addToCart(product: any): void {
-    this.cart.push(product);
-    localStorage.setItem('cart', JSON.stringify(this.cart)); // Save cart to localStorage
-    this.cartSubject.next(this.cart); // Emit updated cart state
-    this.cartCountSubject.next(this.cart.length);
+   // Add product to the cart (using localStorage)
+   addToCart(product: any): void {
+    const existingProduct = this.cart.find(item => item.id === product.id);
+    if (existingProduct) {
+      existingProduct.quantity++;
+    } else {
+      product.quantity = 1;  // Set default quantity
+      this.cart.push(product);
+    }
+    this.saveCart();
   }
-
+    // Update product quantity in the cart
+   updateCart(product: any): void {
+    const existingProduct = this.cart.find(item => item.id === product.id);
+    if (existingProduct) {
+      existingProduct.quantity = product.quantity;
+      this.saveCart();
+    }
+  }
   // Remove product from cart
   removeFromCart(product: any): void {
     this.cart = this.cart.filter(item => item.id !== product.id);
-    localStorage.setItem('cart', JSON.stringify(this.cart)); // Update cart in localStorage
-    this.cartSubject.next(this.cart); // Emit updated cart state
-    this.cartCountSubject.next(this.cart.length);
+    this.saveCart();
   }
 
+    // Save cart to localStorage and notify changes
+    private saveCart(): void {
+      localStorage.setItem('cart', JSON.stringify(this.cart)); // Save cart to localStorage
+      this.cartSubject.next(this.cart); // Emit updated cart state
+      this.cartCountSubject.next(this.cart.length);
+    }
   // Get the cart from localStorage
   getCart(): any[] {
     return JSON.parse(localStorage.getItem('cart') || '[]');
