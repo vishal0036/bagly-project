@@ -11,6 +11,7 @@
         <img class="w-16" [src]="product.images[0]?.src" alt="{{ product.name }}"
           *ngIf="product.images && product.images.length > 0" />
         <h2 class="font-medium tracking-wider">{{ product.name }}</h2>
+        <input type="number" class="bg-tfc_back text-white border-0 w-6 text-center py-0 outline-none" [value]="product.quantity" readonly />
 
         <p class="font-normal">{{ product.price | currency }}</p>
         <button class="text-xs bg-gray text-black rounded-full w-5 h-5 px-1" (click)="removeFromCart(product)">X</button>
