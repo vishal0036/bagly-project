@@ -1,0 +1,26 @@
+
+<div class="site-container">
+
+    <div *ngIf="cart.length > 0; else emptyCart">
+        <div class="cart-items">
+            <div *ngFor="let item of cart" class="cart-item">
+                <img class="w-16" [src]="item.images[0]?.src" alt="{{ item.name }}"
+                *ngIf="item.images && item.images.length > 0" />
+                <p><strong>{{ item.name }}</strong></p>
+                <p>Price: {{ item.price | currency }}</p>
+                <p>Quantity: {{ item.quantity }}</p>
+                <p>Total: {{ item.price * item.quantity | currency }}</p>
+                <button (click)="removeItem(item)">Remove</button>
+            </div>
+        </div>
+
+        <div class="cart-summary">
+            <h3>Total: {{ total | currency }}</h3>
+            <button>Place Order</button>
+        </div>
+    </div>
+
+    <ng-template #emptyCart>
+        <p>Your checkout is empty.</p>
+    </ng-template>
+</div>

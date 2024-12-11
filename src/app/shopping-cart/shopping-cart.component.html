@@ -1,5 +1,5 @@
-<div
-  class="bg-tfc_back text-white px-4 py-7 absolute left-0 top-10 w-[350px] h-[auto] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center">
+<div *ngIf="cart.length > 0"
+  class="bg-tfc_back text-white px-4 py-7 absolute left-0 top-10 max-w-max w-[400px] -ml-26 h-[auto] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center">
 
   <div *ngIf="cart.length === 0" class="empty-cart py-10 text-center text-2xl w-64">
     <p class="text-center">Your cart is empty.</p>
@@ -7,13 +7,13 @@
 
   <div *ngIf="cart.length > 0" class="cart-items">
     <div class="cart-item flex flex-col">
-      <div *ngFor="let product of cart" class="item-details flex gap-3 mb-2 items-center">
+      <div *ngFor="let product of cart" class="item-details flex gap-3 mb-8 items-center">
         <img class="w-16" [src]="product.images[0]?.src" alt="{{ product.name }}"
           *ngIf="product.images && product.images.length > 0" />
         <h2 class="font-medium tracking-wider">{{ product.name }}</h2>
 
         <p class="font-normal">{{ product.price | currency }}</p>
-        <button (click)="removeFromCart(product)">X</button>
+        <button class="text-xs bg-gray text-black rounded-full w-5 h-5 px-1" (click)="removeFromCart(product)">X</button>
       </div>
 
       <div class="cart-total py-3 shadow-md px-5 w-full">
@@ -26,7 +26,7 @@
     </div>
 
     <div class="btn pt-5"><a class="text-light_black bg-white px-7 rounded-lg py-2" routerLink="/cart">Cart</a>
-      <button class=" bg-black text-white px-7 rounded-lg py-2">Payment</button>
+      <button routerLink="/checkout" class=" bg-black text-white px-7 rounded-lg py-2">Payment</button>
     </div>
   </div>
 </div>

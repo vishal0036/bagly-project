@@ -1,8 +1,10 @@
 <div class="site-container">
 
   <!-- Check if the cart is empty -->
-  <div *ngIf="cart.length === 0" class="empty-cart py-10 text-center text-2xl">
-    <p class="text-center">Your cart is empty.</p>
+  <div *ngIf="cart.length === 0" class="empty-cart py-10 text-center text-2xl shadow-2xl my-12 rounded-xl">
+    <img class="inline-block w-20" src="/assets/images/shopping-bag.png" alt="">
+    <p class="text-center mb-5 font-extrabold">Your cart is empty.</p>
+    <a class="bg-black text-white px-5 py-2 text-base rounded-md " routerLink="" >keep Shopping</a>
   </div>
 
   <!-- Display cart items -->
@@ -30,13 +32,16 @@
         <div class="flex justify-between w-3/5">
           <p class="font-normal">{{ product.price | currency }}</p>
           <div class="number">
-            <button class="minus px-2 py-1 border" (click)="decrementQuantity(product)">-</button>         
-            <input type="number" class="w-10 text-center border" [value]="product.quantity" readonly />
-            <span class="plus px-2 py-1 border" (click)="incrementQuantity(product)">+</span>
-          </div> 
-                 
+            <button class="minus px-2 py-1 border bg-black text-white" (click)="decrementQuantity(product)">-</button>         
+            <input type="number" class="bg-lightgray border-0 w-11 text-center py-1 outline-none" [value]="product.quantity" readonly />
+            <span class="plus px-2 py-1 border bg-black text-white" (click)="incrementQuantity(product)">+</span>
+          </div>    
           <button (click)="removeFromCart(product)">X</button>
         </div>
+      </div>
+      <div class="flex justify-between  mb-2 align-middle">
+        <div>Subtotale  <span>{{ getTotal() | currency }}</span></div>
+        <a routerLink="/checkout" class="border px-11 rounded-lg py-2">Continues</a>
       </div>
     </div>
     <!-- Display total price -->

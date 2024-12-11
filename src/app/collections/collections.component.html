@@ -32,6 +32,7 @@
         <!-- Display filtered list of products -->
         <div *ngIf="!isLoading && !errorMessage" class="products-list grid grid-cols-4 gap-3 justify-center w-4/5">
           <div *ngFor="let product of filteredProducts" class="product-item">
+            
             <div class="product-image">
               <img [src]="product.images[0]?.src" [alt]="product.name" />
             </div>

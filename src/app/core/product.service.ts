@@ -53,9 +53,8 @@ export class ProductService {
     return this.http.get<any>(url, { headers });
   }
 
-  // Add product to the cart (using localStorage)
    // Add product to the cart (using localStorage)
-   addToCart(product: any): void {
+  addToCart(product: any): void {
     const existingProduct = this.cart.find(item => item.id === product.id);
     if (existingProduct) {
       existingProduct.quantity++;
