@@ -1,0 +1,40 @@
+<div class="search-container">
+  <!-- Input field for search -->
+  <input 
+    type="text" 
+    placeholder="Search..." 
+    class="search-input" 
+    [value]="searchQuery" 
+    (input)="onSearch($event)" />
+
+  <!-- Button to trigger search -->
+  <button 
+    class="search-btn" 
+    (click)="onSearchButtonClick()">
+    Search
+  </button>
+
+  <!-- Close button to clear the search field -->
+  <button 
+    class="clear-btn" 
+    *ngIf="searchQuery" 
+    (click)="onClearSearch()">
+    X
+  </button>
+</div>
+
+<!-- Search results -->
+<div *ngIf="searchResults.length > 0" class="search-results">
+  <ul>
+    <li [routerLink]="['/product', product.id]" *ngFor="let product of searchResults">
+      {{ product.name }}
+      <img class="w-16" [src]="product.images[0]?.src" alt="{{ product.name }}" 
+        *ngIf="product.images && product.images.length > 0" />
+    </li>
+  </ul>
+</div>
+
+<!-- No results message -->
+<div *ngIf="searchResults.length === 0 && searchQuery.trim()" class="no-results">
+  No products found.
+</div>

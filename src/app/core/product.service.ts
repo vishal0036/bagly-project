@@ -53,6 +53,7 @@ export class ProductService {
     return this.http.get<any>(url, { headers });
   }
 
+  // Add product to the cart (using localStorage)
    // Add product to the cart (using localStorage)
   addToCart(product: any): void {
     const existingProduct = this.cart.find(item => item.id === product.id);
@@ -65,6 +66,7 @@ export class ProductService {
     this.saveCart();
   }
     // Update product quantity in the cart
+   // Update product quantity in the cart
    updateCart(product: any): void {
     const existingProduct = this.cart.find(item => item.id === product.id);
     if (existingProduct) {
@@ -97,4 +99,6 @@ export class ProductService {
    getCartCountObservable(): Observable<number> {
     return this.cartCountSubject.asObservable();
   }
+
+  
 }

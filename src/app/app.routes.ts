@@ -7,6 +7,7 @@ import { AppproductComponent } from './appproduct/appproduct.component';
 import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { SearchComponent } from './search/search.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -17,6 +18,7 @@ export const routes: Routes = [
     { path: 'appproduct', component: AppproductComponent },
     { path: 'cart', component: CartComponent },
     { path: 'checkout', component: CheckoutComponent },
+    { path: 'search', component: SearchComponent },
     { path: '**', component: PageNotFoundComponent }, 
 ];
 

@@ -3,12 +3,14 @@ import { RouterLink } from '@angular/router';
 import { ShoppingCartComponent } from '../../shopping-cart/shopping-cart.component';
 import { ProductService } from '../product.service';
 import { CommonModule } from '@angular/common';
+import { SearchComponent } from '../../search/search.component';
+
 
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, ShoppingCartComponent, CommonModule],
+  imports: [RouterLink, ShoppingCartComponent, CommonModule, SearchComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -22,4 +24,5 @@ export class HeaderComponent {
           this.cartCount = count;
       });
   }
+  
 }

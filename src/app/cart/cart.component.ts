@@ -13,6 +13,8 @@ import { RouterLink } from '@angular/router';
 export class CartComponent implements OnInit {
   cart: any[] = [];  // Array to store cart products
   count: number = 0;
+  showPopup: boolean = false;
+  popupMessage: string = '';
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
@@ -22,6 +24,7 @@ export class CartComponent implements OnInit {
     });
   }
 
+  
   incrementCount(): void {
     this.count++;
   }
